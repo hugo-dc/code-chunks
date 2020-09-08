@@ -25,9 +25,11 @@ def show_tree(tree):
             dot.edges([parent[0]+right[0]])
             if toggle:
                 parent = left
-                toggle = True
+                prev_parent = right
+                toggle = False
             else:
-                parent = right
+                parent = prev_parent
+                prev_parent = left
                 toggle = False
                 
             left = None
