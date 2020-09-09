@@ -3,7 +3,7 @@ from graphviz import Digraph
 def show_tree(tree, title='Tree'):
     dot = Digraph()
     dot.graph_attr['rankdir'] = 'TB'
-    dot.format = 'png'
+    dot.format = 'svg'
     subtree = tree[1:]
     
     ix = 0
