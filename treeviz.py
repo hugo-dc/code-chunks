@@ -1,45 +1,29 @@
 from graphviz import Digraph
 
-def show_tree(tree):
+def show_tree(tree, title='Tree'):
     dot = Digraph()
+    dot.format = 'png'
     subtree = tree[1:]
     
-    main_tree = []
-
     ix = 0
-    parent = None
-    left = None
-    right = None
+    iy = 0
 
-    toggle = True
 
     for t in subtree:
         dot.node(str(ix), t.hex())
-        if parent is None:
-            parent = (str(ix), t.hex())
-        elif left is None:
-            left = (str(ix), t.hex())
-            dot.edges([parent[0]+left[0]])
-        elif right is None:
-            right = (str(ix), t.hex())
-            dot.edges([parent[0]+right[0]])
-            if toggle:
-                parent = left
-                prev_parent = right
-                toggle = False
-            else:
-                parent = prev_parent
-                prev_parent = left
-                toggle = False
-                
-            left = None
-            right = None
-
+        if iy+1 < len(subtree):
+            left = iy+1
+            right = iy + 2
+            dot.edge(str(ix), str(iy+1))
+            dot.edge(str(ix), str(iy+2))
+            iy +=2
         ix += 1
+
     dot.node("A", tree[0].hex())
     dot.node("B", "metadata")
     dot.edges(["AB"])
     dot.edges(["A0"])
+    dot.render('render/' + title + '.dot', view=False)
     return dot
 
         
