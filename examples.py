@@ -2,7 +2,7 @@ import json
 import merkleize
 import treeviz
 
-contracts = ['dai', 'lend', 'link', 'mkr', 'omg', 'usdc', 'usdt', 'wbtc', 'yfi']
+contracts = ['dai', 'lend', 'link', 'mkr', 'omg', 'usdc', 'usdt', 'wbtc', 'yfi', 'bat']
 
 for contract in contracts:
     with open('bytecodes/' + contract + '.json', 'r') as json_file:
