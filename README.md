@@ -58,7 +58,8 @@ hash, or the empty value (zeros):
 
 ![](img/leaf_example_2.png)
 
-These are the results after executing the script:
+These are the results after executing the script (click on the image to see the
+full size):
 
 ### BAT
 
@@ -138,4 +139,5 @@ These are the results after executing the script:
 - **Total leafs:** 1024
 - **Total nodes:** 2048
 
-![](https://raw.githubusercontent.com/hugo-dc/code-chunks/master/render/usdt.dot.svg)
+[Click here to see the
+tree](https://raw.githubusercontent.com/hugo-dc/code-chunks/master/render/usdt.dot.svg)
