@@ -31,7 +31,9 @@ based on a script shared by @vbuterin. This script contains the following functi
 - Install [Graphviz](https://graphviz.org/download/).
 - Install the `graphviz` python library:
 
-    pip install graphviz
+```
+pip install graphviz
+```
     
 After that we can execute the `example.py` script which will generate the SVG
 files in the `render/` directory.
