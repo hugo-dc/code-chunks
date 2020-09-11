@@ -28,12 +28,10 @@ based on a script shared by @vbuterin. This script contains the following functi
 
 ## Executing
 
-A simple way to run this examples is by setting a Python virtual environment by
-following the next commands:
+- Install [Graphviz](https://graphviz.org/download/).
+- Install the `graphviz` python library:
 
-    virtualenv -p python3 venv
-    . venv/bin/activate
-    pip install -r requirements.txt
+    pip install graphviz
     
 After that we can execute the `example.py` script which will generate the SVG
 files in the `render/` directory.
@@ -46,7 +44,8 @@ element) and the metadata:
 
 ![](img/root_calculation.png)
 
-The metadata corresponds to the total bytecode length.
+The metadata corresponds to the total bytecode length as a Big Endian 32 bit
+number.
 
 The leafs of the tree corresponds to `hash(chunk + code_start)`. Except for the
 empty (zero) leafs which are generated to fill the binary tree.

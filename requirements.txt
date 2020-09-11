@@ -1,8 +1,1 @@
-cytoolz==0.10.1
-eth-hash==0.2.0
-eth-typing==2.2.1
-eth-utils==1.9.4
-pysha3==1.0.2
-rlp==1.2.0
-toolz==0.10.0
-trie==1.4.0
+graphviz==0.14.1
