@@ -2,7 +2,7 @@ import json
 import merkleize
 import treeviz
 
-contracts = ['dai', 'lend', 'link', 'mkr', 'omg', 'usdc', 'usdt', 'wbtc', 'yfi', 'bat']
+contracts = ['bat', 'link', 'mkr', 'omg', 'usdc', 'dai', 'lend', 'wbtc', 'yfi', 'usdt']
 
 for contract in contracts:
     with open('bytecodes/' + contract + '.json', 'r') as json_file:
@@ -11,9 +11,12 @@ for contract in contracts:
     print('Contract: ', contract.upper())
     chunks = merkleize.chunkify(bytecode)
     print('Total chunks: ', len(chunks))
+    total_leafs = merkleize.next_power_of_2(len(chunks))
+    print('Total leafs: ', total_leafs)
     tree = merkleize.treefy(chunks, len(bytecode))
     print('Total nodes: ', len(tree))
     print('Generating tree...')
-    treeviz.show_tree(tree, contract)
+    tviz = treeviz.generate_tree(tree)
+    tviz.render('render/'+contract+'.dot', view=False)
     print('./render/'+contract+'.dot.svg')
 

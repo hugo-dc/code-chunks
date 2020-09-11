@@ -5,10 +5,6 @@ def sha3_256(data):
     s.update(data)
     return s.digest()
     
-def generate_code_root(program):
-    tree = treefy(chunkify(program), len(program))
-    return tree[0]
-
 def chunkify(program):
     chunks = []
     pos = 0

@@ -1,6 +1,6 @@
 from graphviz import Digraph
 
-def show_tree(tree, title='Tree'):
+def generate_tree(tree):
     dot = Digraph()
     dot.graph_attr['rankdir'] = 'TB'
     dot.format = 'svg'
@@ -8,8 +8,6 @@ def show_tree(tree, title='Tree'):
     
     ix = 0
     iy = 0
-
-
     for t in subtree:
         dot.node(str(ix)+'-'+t.hex(), str(ix))
         if iy+1 < len(subtree):
@@ -20,14 +18,9 @@ def show_tree(tree, title='Tree'):
             iy +=2
         ix += 1
 
-    dot.node("root-"+tree[0].hex(), "root")
+    root_id = "root-"+tree[0].hex()
+    dot.node(root_id, 'root')
     dot.node("B", "metadata")
-    #dot.edges(["AB"])
-    dot.edge("root-"+tree[0].hex(), "B")
-    #dot.edges(["A0"])
-    dot.edge("root-"+tree[0].hex(), '0-' + subtree[0].hex())
-    dot.render('render/' + title + '.dot', view=False)
+    dot.edge(root_id, "B")
+    dot.edge(root_id, '0-' + subtree[0].hex())
     return dot
-
-        
-    
